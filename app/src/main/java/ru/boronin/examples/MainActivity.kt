@@ -4,7 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.boronin.examples.coroutines.CoroutineManager
+import ru.boronin.examples.coroutines.ExceptionsAndCancellation
+import ru.boronin.examples.coroutines.GettingStarted
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.button -> {
-                CoroutineManager().runDependentJobs()
+                ExceptionsAndCancellation().cancelWithTimeout()
             }
         }
     }
