@@ -4,8 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
-import ru.boronin.examples.coroutines.ExceptionsAndCancellation
-import ru.boronin.examples.coroutines.GettingStarted
+import com.boronin.coroutines.ExceptionsAndCancellation
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 

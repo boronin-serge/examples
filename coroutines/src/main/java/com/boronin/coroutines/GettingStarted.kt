@@ -1,4 +1,4 @@
-package ru.boronin.examples.coroutines
+package com.boronin.coroutines
 
 import kotlinx.coroutines.*
 

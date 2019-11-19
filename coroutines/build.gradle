@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+android {
+    def ext = rootProject.ext
+
+    compileSdkVersion ext.androidCompileSdkVersion
+    defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+}
+
+dependencies {
+    def developmentDependencies = rootProject.ext.developmentDependencies
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
+
+    implementation developmentDependencies.kotlinStdlibJdk7
+}

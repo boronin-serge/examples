@@ -1,0 +1,22 @@
+allprojects {
+  repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url "https://www.jitpack.io" }
+    maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
+    jcenter()
+    google()
+  }
+}
+
+ext {
+  //Android
+  androidBuildToolsVersion        = "29.0.2"
+  androidMinSdkVersion            = 21
+  androidTargetSdkVersion         = 29
+  androidCompileSdkVersion        = 29
+
+  developmentDependencies = [
+    kotlinStdlibJdk7:           "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
+  ]
+}
