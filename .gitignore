@@ -1,6 +1,7 @@
-
 *.bin
-
 *.lock
-
 .idea/*
+.gradle/*
+*.iml
+*/*.iml
+build/*
