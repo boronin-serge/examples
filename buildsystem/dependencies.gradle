@@ -17,6 +17,6 @@ ext {
   androidCompileSdkVersion        = 29
 
   developmentDependencies = [
-    kotlinStdlibJdk7:           "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}"
+    kotlinStdlibJdk7:           "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
   ]
 }
