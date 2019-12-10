@@ -1,2 +1,2 @@
-include ':app', ':coroutines', ':workmanager'
+include ':app', ':coroutines', ':workmanager', ':core-api', ':common-utils'
 rootProject.name='Examples'
