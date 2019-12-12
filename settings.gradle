@@ -1,2 +1,2 @@
-include ':app', ':coroutines', ':workmanager', ':core-api', ':common-utils'
+include ':app', ':coroutines', ':workmanager', ':core-api', ':common-utils', ':core-android-preferencemanager', ':core-android-resourceprovider-impl', ':common-extension'
 rootProject.name='Examples'
