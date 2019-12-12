@@ -1,4 +1,4 @@
-package ru.boronin.core.api.resource
+package ru.boronin.core.api.resource.impl
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -10,8 +10,10 @@ import ru.boronin.common.extension.core.getQuantityString
 import ru.boronin.common.extension.core.getStringArray
 import ru.boronin.common.extension.paint.drawable.getDrawableRes
 import ru.boronin.common.utils.DEFAULT_INT
+import ru.boronin.core.api.resource.ResourcesProvider
 
-class AndroidResourcesProvider(private val context: Context) : ResourcesProvider {
+class AndroidResourcesProvider(private val context: Context) :
+  ResourcesProvider {
   override fun getString(resId: Int) = context.getString(resId)
   override fun getString(resId: Int, vararg formatArgs: Any) = context.getString(resId, *formatArgs)
   override fun getStringArray(resId: Int): Array<String> = context.getStringArray(resId)

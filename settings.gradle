@@ -1,2 +1,11 @@
-include ':app', ':coroutines', ':workmanager', ':core-api', ':common-utils', ':core-android-preferencemanager', ':core-android-resourceprovider-impl', ':common-extension'
+include ':app',
+        ':coroutines',
+        ':workmanager',
+        ':core-api',
+        ':common-utils',
+        ':core-android-preferencemanager-impl',
+        ':core-android-resourceprovider-impl',
+        ':common-extension',
+        ':core-android-locationprovider-impl', ':common-adapterdelegates', ':mosby-conductor'
+
 rootProject.name='Examples'

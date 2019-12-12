@@ -16,9 +16,16 @@ ext {
   androidTargetSdkVersion         = 29
   androidCompileSdkVersion        = 29
 
+  // Di
+  koinVersion                     = '2.1.0-alpha-2'
+
   // UI
+  conductorVersion                = '3.0.0-rc2'     //Navigation framework
   appCompatVersion                = '1.1.0-rc01'
   chromeCustomTabsVersion         = '23.3.0'
+  recyclerViewVersion             = '1.1.0-beta04'
+  adapterDelegatesVersion         = '4.2.0'
+  arcLifecycleVersion             = '2.1.0'
 
   // RxJava
   rxJavaVersion                   = '2.2.8'
@@ -30,7 +37,16 @@ ext {
   annotationVersion               = '1.0.0'
   coreKtxVersion                  = '1.0.2'
 
+  // Play services
+  locationServiceVersion          = '17.0.0'
+
+
   dependencies = [
+    //di
+    koin:                       "org.koin:koin-android:${koinVersion}",
+    koinAndroidScope:           "org.koin:koin-android-scope:${koinVersion}",
+    koinTest:                   "org.koin:koin-test:${koinVersion}",
+
     // rx
     rxJava:                     "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
     rxAndroid:                  "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
@@ -38,7 +54,16 @@ ext {
 
     // ui
     appcompat:                  "androidx.appcompat:appcompat:${appCompatVersion}",
-    chromeCustomTabs:           "com.android.support:customtabs:${chromeCustomTabsVersion}"
+    chromeCustomTabs:           "com.android.support:customtabs:${chromeCustomTabsVersion}",
+    recyclerView:               "androidx.recyclerview:recyclerview:${recyclerViewVersion}",
+    adapterDelegates:           "com.hannesdorfmann:adapterdelegates4:${adapterDelegatesVersion}",
+    conductor:                  "com.bluelinelabs:conductor:${conductorVersion}",
+    conductorSupport:           "com.bluelinelabs:conductor-support:${conductorVersion}",
+    conductorArchLifecycle:     "com.bluelinelabs:conductor-archlifecycle:${conductorVersion}",
+    arcLifecycle:               "androidx.lifecycle:lifecycle-common:${arcLifecycleVersion}",
+
+    // location
+    playServicesLocation:       "com.google.android.gms:play-services-location:${locationServiceVersion}"
   ]
 
   developmentDependencies = [

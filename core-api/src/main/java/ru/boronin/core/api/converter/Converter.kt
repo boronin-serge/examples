@@ -1,4 +1,4 @@
-package ru.bia.tech.core.api.converter
+package ru.boronin.core.api.converter
 
 import java.lang.reflect.Type
 

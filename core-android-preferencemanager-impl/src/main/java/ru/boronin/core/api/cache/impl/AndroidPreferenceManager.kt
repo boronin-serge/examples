@@ -1,8 +1,9 @@
-package ru.boronin.core.api.cache
+package ru.boronin.core.api.cache.impl
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences.Editor
+import ru.boronin.core.api.cache.PreferenceManager
 
 const val DEFAULT_NAME_PREFERENCE = "prefs"
 
