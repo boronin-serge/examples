@@ -1,10 +1,10 @@
-package ru.bia.tech.common.adapterdelegates
+package ru.boronin.common.adapterdelegates
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
-import ru.bia.tech.common.utils.extension.core.collection.isNotOutToBounds
+import ru.boronin.common.extension.core.collection.isNotOutToBounds
 
 class DelegateAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
   private var items = mutableListOf<T>()

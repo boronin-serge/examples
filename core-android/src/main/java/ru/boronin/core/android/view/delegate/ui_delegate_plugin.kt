@@ -1,9 +1,9 @@
-package ru.bia.tech.core.android.view.delegate
+package ru.boronin.core.android.view.delegate
 
 import android.view.View
 import androidx.annotation.CallSuper
 import androidx.annotation.IdRes
-import ru.bia.tech.common.utils.delegate.weakReference
+import ru.boronin.common.utils.delegate.weakReference
 
 sealed class UIDelegatePluginEvent {
   class OnViewBound(val view: View?) : UIDelegatePluginEvent()

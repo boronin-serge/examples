@@ -13,13 +13,12 @@ import androidx.appcompat.widget.AppCompatRadioButton
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.withStyledAttributes
 import kotlinx.android.synthetic.main.text_checkbox.view.*
-import ru.bia.tech.common.utils.DEFAULT_STRING
-import ru.bia.tech.common.utils.extension.widget.attach
-import ru.bia.tech.common.utils.extension.widget.checkedChangeListener
-import ru.bia.tech.common.utils.extension.widget.getFont
-import ru.bia.tech.common.view.R
+import ru.boronin.common.extension.widget.attach
+import ru.boronin.common.extension.widget.checkedChangeListener
+import ru.boronin.common.extension.widget.getFont
+import ru.boronin.common.utils.DEFAULT_STRING
 import ru.boronin.common.view.TextCompoundButton.CompoundButtonType.*
-import ru.bia.tech.core.android.view.base.BaseFrameLayout
+import ru.boronin.core.android.view.base.BaseFrameLayout
 
 class TextCompoundButton @JvmOverloads constructor(
   context: Context,

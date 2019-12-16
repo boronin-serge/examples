@@ -5,7 +5,6 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.withStyledAttributes
-import ru.bia.tech.common.view.R
 import ru.boronin.common.view.XfermodeView.TypeSize.CUSTOM
 import ru.boronin.common.view.XfermodeView.TypeSize.FIT
 

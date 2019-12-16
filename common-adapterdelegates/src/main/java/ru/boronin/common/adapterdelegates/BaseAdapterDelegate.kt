@@ -1,4 +1,4 @@
-package ru.bia.tech.common.adapterdelegates
+package ru.boronin.common.adapterdelegates
 
 import android.view.LayoutInflater
 import android.view.View

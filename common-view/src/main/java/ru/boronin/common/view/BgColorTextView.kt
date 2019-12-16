@@ -8,7 +8,6 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.core.content.withStyledAttributes
-import ru.bia.tech.common.view.R
 
 
 /**

@@ -1,2 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.bia.tech.core.api.location.impl" />
+    package="ru.boronin.core.api.location.impl" />

@@ -1,4 +1,4 @@
-package ru.bia.tech.core.android.view.base
+package ru.boronin.core.android.view.base
 
 import android.content.Context
 import android.util.AttributeSet

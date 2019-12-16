@@ -1,4 +1,4 @@
-package ru.bia.tech.core.api.system
+package ru.boronin.core.api.system
 
 /**
  * Created by Sergey Boronin on 31.07.2019.

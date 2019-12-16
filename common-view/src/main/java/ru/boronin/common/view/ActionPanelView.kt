@@ -9,12 +9,11 @@ import androidx.annotation.FontRes
 import androidx.core.content.withStyledAttributes
 import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.action_panel_view.view.*
-import ru.bia.tech.common.view.R
-import ru.boronin.common.utils.DEFAULT_STRING
 import ru.boronin.common.extension.widget.animationChangeColor
 import ru.boronin.common.extension.widget.getColorStateList
 import ru.boronin.common.extension.widget.getFont
-import ru.bia.tech.core.android.view.base.BaseFrameLayout
+import ru.boronin.common.utils.DEFAULT_STRING
+import ru.boronin.core.android.view.base.BaseFrameLayout
 import java.util.*
 
 class ActionPanelView @JvmOverloads constructor(

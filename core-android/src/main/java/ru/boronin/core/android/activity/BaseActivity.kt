@@ -1,4 +1,4 @@
-package ru.bia.tech.core.android.activity
+package ru.boronin.core.android.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

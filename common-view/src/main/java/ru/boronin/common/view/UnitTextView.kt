@@ -8,7 +8,6 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.withStyledAttributes
-import ru.bia.tech.common.view.R
 
 class UnitTextView @JvmOverloads constructor(
   context: Context,

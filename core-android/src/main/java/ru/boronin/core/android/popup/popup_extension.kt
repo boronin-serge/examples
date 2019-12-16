@@ -1,10 +1,10 @@
-package ru.bia.tech.core.android.popup
+package ru.boronin.core.android.popup
 
 import android.content.Context
 import android.view.View
 import androidx.annotation.IdRes
-import ru.bia.tech.core.android.popup.impl.SnackBarPopup
-import ru.bia.tech.core.android.popup.impl.ToastPopup
+import ru.boronin.core.android.popup.impl.SnackBarPopup
+import ru.boronin.core.android.popup.impl.ToastPopup
 
 /**
  * It will help me for easy {@link Toast} or {@link Snackbar}

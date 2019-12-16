@@ -1,4 +1,4 @@
-package ru.bia.tech.core.android.popup.impl
+package ru.boronin.core.android.popup.impl
 
 import android.app.Activity
 import android.content.Context
@@ -9,10 +9,10 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.IdRes
-import ru.bia.tech.common.utils.extension.widget.findViewTraversal
-import ru.bia.tech.common.utils.getNavigationBarSize
-import ru.bia.tech.core.android.popup.Popup
-import ru.bia.tech.core.android.popup.PopupDuration
+import ru.boronin.common.extension.widget.findViewTraversal
+import ru.boronin.common.utils.getNavigationBarSize
+import ru.boronin.core.android.popup.Popup
+import ru.boronin.core.android.popup.PopupDuration
 
 /**
  * Implementation [Popup] for [Snackbar]

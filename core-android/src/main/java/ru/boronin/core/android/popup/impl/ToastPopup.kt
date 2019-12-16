@@ -1,13 +1,14 @@
-package ru.bia.tech.core.android.popup.impl
+package ru.boronin.core.android.popup.impl
 
 import android.content.Context
 import android.widget.Toast
 import androidx.annotation.IdRes
-import ru.bia.tech.core.android.popup.Popup
-import ru.bia.tech.core.android.popup.PopupDuration
-import ru.bia.tech.core.android.popup.PopupDuration.INDEFINITE
+import ru.boronin.core.android.popup.Popup
+import ru.boronin.core.android.popup.PopupDuration
+import ru.boronin.core.android.popup.PopupDuration.INDEFINITE
 
-class ToastPopup(private val context: Context) : Popup {
+class ToastPopup(private val context: Context) :
+  Popup {
   private var toast: Toast? = null
 
   override fun setOnActionClickListener(onActionClickListener: Popup.OnActionClickListener?) { }

@@ -18,7 +18,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import com.tbruyelle.rxpermissions2.RxPermissions
-import ru.bia.tech.common.view.R
+import ru.boronin.common.view.R
 import java.io.File
 import java.util.*
 import java.util.concurrent.Executors
