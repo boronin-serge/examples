@@ -6,6 +6,7 @@ include ':app',
         ':core-android-preferencemanager-impl',
         ':core-android-resourceprovider-impl',
         ':common-extension',
-        ':core-android-locationprovider-impl', ':common-adapterdelegates', ':mosby-conductor'
+        ':core-android-locationprovider-impl',
+        ':common-adapterdelegates', ':core-android', ':common-view'
 
 rootProject.name='Examples'

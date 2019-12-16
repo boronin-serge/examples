@@ -26,6 +26,8 @@ ext {
   recyclerViewVersion             = '1.1.0-beta04'
   adapterDelegatesVersion         = '4.2.0'
   arcLifecycleVersion             = '2.1.0'
+  swipeRefreshLayoutVersion       = '1.0.0'
+  materialVersion                 = '1.1.0-alpha07'
 
   // RxJava
   rxJavaVersion                   = '2.2.8'
@@ -53,6 +55,7 @@ ext {
     rxPermissions:              "com.tbruyelle.rxpermissions2:rxpermissions:${rxPermissionsVersion}@aar",
 
     // ui
+    material:                   "com.google.android.material:material:${materialVersion}",
     appcompat:                  "androidx.appcompat:appcompat:${appCompatVersion}",
     chromeCustomTabs:           "com.android.support:customtabs:${chromeCustomTabsVersion}",
     recyclerView:               "androidx.recyclerview:recyclerview:${recyclerViewVersion}",
@@ -61,6 +64,7 @@ ext {
     conductorSupport:           "com.bluelinelabs:conductor-support:${conductorVersion}",
     conductorArchLifecycle:     "com.bluelinelabs:conductor-archlifecycle:${conductorVersion}",
     arcLifecycle:               "androidx.lifecycle:lifecycle-common:${arcLifecycleVersion}",
+    swipeRefreshLayout:         "androidx.swiperefreshlayout:swiperefreshlayout:${swipeRefreshLayoutVersion}",
 
     // location
     playServicesLocation:       "com.google.android.gms:play-services-location:${locationServiceVersion}"
