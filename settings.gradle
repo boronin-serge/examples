@@ -1,4 +1,4 @@
-include ':app', ':room',
+include ':app', ':room', ':splash',
         ':coroutines',
         ':workmanager',
         ':core-api',
