@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    def ext = rootProject.ext
+
+    compileSdkVersion ext.androidCompileSdkVersion
+    defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+}
+
+dependencies {
+    def developmentDependencies = rootProject.ext.developmentDependencies
+
+    // room
+    implementation 'androidx.room:room-runtime:2.2.2'
+    annotationProcessor 'androidx.room:room-compiler:2.2.2'
+
+    // lyfecycle
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.1.0'
+
+    implementation developmentDependencies.kotlinStdlibJdk7
+}
