@@ -1,4 +1,7 @@
-include ':app', ':sample-room', ':sample-splash',
+include ':app',
+        ':sample-room',
+        ':sample-splash',
+        ':sample-flow',
         ':sample-coroutines',
         ':sample-workmanager',
         ':core-api',
