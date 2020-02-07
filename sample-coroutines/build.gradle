@@ -11,8 +11,8 @@ dependencies {
     def developmentDependencies = rootProject.ext.developmentDependencies
 
     // Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
+    implementation developmentDependencies.coroutinesCore
+    implementation developmentDependencies.coroutinesAndroid
 
     implementation developmentDependencies.kotlinStdlibJdk7
 }
