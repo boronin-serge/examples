@@ -29,7 +29,7 @@ dependencies {
     def testDependencies = rootProject.ext.testDependencies
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':sample-coroutines')
+    implementation project(':sample-room')
 
     implementation dependencies.appcompat
     implementation dependencies.constraintlayout
