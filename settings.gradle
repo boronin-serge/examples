@@ -7,6 +7,6 @@ include ':app', ':room', ':splash',
         ':core-android-resourceprovider-impl',
         ':common-extension',
         ':core-android-locationprovider-impl',
-        ':common-adapterdelegates', ':core-android', ':common-view', ':common-plugins'
+        ':common-adapterdelegates', ':core-android', ':common-view', ':common-plugins', ':common-navigation'
 
 rootProject.name='Examples'
