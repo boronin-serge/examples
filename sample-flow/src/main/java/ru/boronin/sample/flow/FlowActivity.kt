@@ -12,6 +12,8 @@ private const val TAG = "FLOW"
 class FlowActivity : AppCompatActivity() {
 
     lateinit var flowItem: Flow<Int>
+    lateinit var flowOne: Flow<String>
+    lateinit var flowTwo: Flow<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +47,18 @@ class FlowActivity : AppCompatActivity() {
         }.map{
             it * it
         }.flowOn(Dispatchers.Default)
+
+        flowOne = flowOf("Himanshu", "Amit", "Janishar").flowOn(Dispatchers.Default)
+        flowTwo = flowOf("Singh", "Shekhar", "Ali").flowOn(Dispatchers.Default)
     }
 
     private fun initListeners() {
         button.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
-                flowItem.collect {
-                    Log.d(TAG, it.toString())
+                flowOne.zip(flowTwo) { firstString, secondString ->
+                    "$firstString $secondString"
+                }.collect {
+                    Log.d(TAG, it)
                 }
             }
         }
