@@ -23,6 +23,7 @@ dependencies {
   // UI
   implementation dependencies.appcompat
   implementation dependencies.rxJava
+  implementation dependencies.recyclerView
   implementation dependencies.rxPermissions
   implementation dependencies.swipeRefreshLayout
 
