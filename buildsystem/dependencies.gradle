@@ -28,6 +28,7 @@ ext {
   adapterDelegatesVersion         = '4.2.0'
   arcLifecycleVersion             = '2.1.0'
   swipeRefreshLayoutVersion       = '1.0.0'
+  viewpager2Version               = '1.0.0'
   materialVersion                 = '1.1.0-alpha07'
 
   // RxJava
@@ -68,6 +69,7 @@ ext {
     recyclerView:               "androidx.recyclerview:recyclerview:${recyclerViewVersion}",
     adapterDelegates:           "com.hannesdorfmann:adapterdelegates4:${adapterDelegatesVersion}",
     conductor:                  "com.bluelinelabs:conductor:${conductorVersion}",
+    viewpager2:                 "androidx.viewpager2:viewpager2:${viewpager2Version}",
     conductorSupport:           "com.bluelinelabs:conductor-support:${conductorVersion}",
     conductorArchLifecycle:     "com.bluelinelabs:conductor-archlifecycle:${conductorVersion}",
     arcLifecycle:               "androidx.lifecycle:lifecycle-common:${arcLifecycleVersion}",

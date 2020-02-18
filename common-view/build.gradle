@@ -25,6 +25,7 @@ dependencies {
   implementation dependencies.rxJava
   implementation dependencies.recyclerView
   implementation dependencies.rxPermissions
+  implementation dependencies.viewpager2
   implementation dependencies.swipeRefreshLayout
 
   // develop
