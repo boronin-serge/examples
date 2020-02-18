@@ -23,6 +23,15 @@
     <attr format="boolean" name="apv_positiveTextEnable" />
   </declare-styleable>
 
+  <declare-styleable name="RoundedFrameLayout">
+    <attr format="color" name="rfl_backgroundColor"/>
+    <attr format="dimension" name="cornerRadius"/>
+    <attr format="dimension" name="topLeftRadius"/>
+    <attr format="dimension" name="topRightRadius"/>
+    <attr format="dimension" name="bottomLeftRadius"/>
+    <attr format="dimension" name="bottomRightRadius"/>
+  </declare-styleable>
+
   <declare-styleable name="CustomRecyclerView">
     <attr format="dimension" name="topLeftCornerRadius"/>
     <attr format="dimension" name="topRightCornerRadius"/>
