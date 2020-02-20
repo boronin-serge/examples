@@ -17,10 +17,12 @@ dependencies {
     def testDependencies = rootProject.ext.testDependencies
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':sample-room')
+    implementation project(':core-android')
 
+    implementation dependencies.material
     implementation dependencies.appcompat
     implementation dependencies.constraintlayout
+    implementation dependencies.recyclerView
 
     implementation developmentDependencies.kotlinStdlibJdk7
     implementation developmentDependencies.coreKtx
