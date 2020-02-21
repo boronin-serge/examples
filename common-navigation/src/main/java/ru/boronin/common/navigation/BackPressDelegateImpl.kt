@@ -12,11 +12,16 @@ class BackPressDelegateImpl : BackPressDelegate {
         this.navigator = navigator
     }
 
-    override fun backPressed(superFun: () -> Unit) {
+    override fun backPressed(superFun: () -> Unit, hideAppFun: () -> Unit){
         val backListener = navigator.getLastFragment() as? BackListener
         val handleBack = backListener?.back() ?: false
         if (handleBack) {
-            superFun.invoke()
+            // Close app if last screen
+            if (navigator.getStackSize() == 1) {
+                hideAppFun.invoke()
+            } else {
+                superFun.invoke()
+            }
         }
     }
 }

@@ -5,5 +5,5 @@ package ru.boronin.common.navigation
  */
 interface BackPressDelegate {
     fun attachNavigator(navigator: AppNavigatorHandlerImpl)
-    fun backPressed(superFun: () -> Unit)
+    fun backPressed(superFun: () -> Unit, hideAppFun: () -> Unit)
 }
