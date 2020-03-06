@@ -100,7 +100,7 @@ ext {
 
     // Stetho
     stetho:                     "com.facebook.stetho:stetho:${stethoVersion}",
-    stethoInterceptor:          "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
+    stethoInterceptor:          "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
   ]
 
   testDependencies = [
