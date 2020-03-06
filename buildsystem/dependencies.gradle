@@ -31,6 +31,11 @@ ext {
   viewpager2Version               = '1.0.0'
   materialVersion                 = '1.1.0-alpha07'
 
+  //network
+  retrofitVersion                 = '2.5.0'
+  retrofitLoggingVersion          = '4.1.1'
+  okhttpVersion                   = '4.2.1'
+
   // RxJava
   rxJavaVersion                   = '2.2.8'
   rxAndroidVersion                = '2.1.1'
@@ -41,6 +46,7 @@ ext {
   annotationVersion               = '1.0.0'
   coreKtxVersion                  = '1.0.2'
   coroutinesVersion               = '1.3.3'
+  stethoVersion                   = '1.5.1'
 
   // Play services
   locationServiceVersion          = '17.0.0'
@@ -60,6 +66,12 @@ ext {
     rxJava:                     "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
     rxAndroid:                  "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
     rxPermissions:              "com.tbruyelle.rxpermissions2:rxpermissions:${rxPermissionsVersion}@aar",
+    retrofitAdapterRxJava:      "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+
+    // network
+    retrofit:                   "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+    retrofitLogging:            "com.squareup.okhttp3:logging-interceptor:${retrofitLoggingVersion}",
+    gsonRetrofitConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
 
     // ui
     material:                   "com.google.android.material:material:${materialVersion}",
@@ -84,7 +96,11 @@ ext {
     coreKtx:                    "androidx.core:core-ktx:${coreKtxVersion}",
     annotation:                 "androidx.annotation:annotation:${annotationVersion}",
     coroutinesCore:             "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}",
-    coroutinesAndroid:          "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}"
+    coroutinesAndroid:          "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
+
+    // Stetho
+    stetho:                     "com.facebook.stetho:stetho:${stethoVersion}",
+    stethoInterceptor:          "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
   ]
 
   testDependencies = [
