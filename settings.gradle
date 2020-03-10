@@ -10,6 +10,12 @@ include ':app',
         ':core-android-resourceprovider-impl',
         ':common-extension',
         ':core-android-locationprovider-impl',
-        ':common-adapterdelegates', ':core-android', ':common-view', ':common-plugins', ':common-navigation', ':common-network'
+        ':common-adapterdelegates',
+        ':core-android',
+        ':common-view',
+        ':common-plugins',
+        ':common-navigation',
+        ':common-network',
+        ':common-rx-utils'
 
 rootProject.name='Examples'
