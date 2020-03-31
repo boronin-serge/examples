@@ -9,11 +9,12 @@ android {
 }
 
 dependencies {
+    def dependencies = rootProject.ext.dependencies
     def developmentDependencies = rootProject.ext.developmentDependencies
 
     // room
-    implementation 'androidx.room:room-runtime:2.2.2'
-    annotationProcessor 'androidx.room:room-compiler:2.2.2'
+    implementation dependencies.room
+    annotationProcessor dependencies.roomAnnotationProcessor
 
     // lyfecycle
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.1.0'
