@@ -2,4 +2,5 @@
 <resources>
   <color name="normalActionTextColor">#222222</color>
   <color name="disableActionTextColor">#42000000</color>
+  <color name="colorGray">#AEAEAE</color>
 </resources>
