@@ -24,12 +24,21 @@
   </declare-styleable>
 
   <declare-styleable name="RoundedFrameLayout">
-    <attr format="color" name="rfl_backgroundColor"/>
-    <attr format="dimension" name="cornerRadius"/>
-    <attr format="dimension" name="topLeftRadius"/>
-    <attr format="dimension" name="topRightRadius"/>
-    <attr format="dimension" name="bottomLeftRadius"/>
-    <attr format="dimension" name="bottomRightRadius"/>
+    <attr name="rfl_backgroundColor" format="color" />
+    <attr name="rfl_cornerRadius" format="dimension" />
+    <attr name="rfl_topLeftRadius" format="dimension" />
+    <attr name="rfl_topRightRadius" format="dimension" />
+    <attr name="rfl_bottomLeftRadius" format="dimension" />
+    <attr name="rfl_bottomRightRadius" format="dimension" />
+  </declare-styleable>
+
+  <declare-styleable name="RoundedConstraintLayout">
+    <attr name="rcl_backgroundColor" format="color" />
+    <attr name="rcl_cornerRadius" format="dimension" />
+    <attr name="rcl_topLeftRadius" format="dimension" />
+    <attr name="rcl_topRightRadius" format="dimension" />
+    <attr name="rcl_bottomLeftRadius" format="dimension" />
+    <attr name="rcl_bottomRightRadius" format="dimension" />
   </declare-styleable>
 
   <declare-styleable name="CustomRecyclerView">

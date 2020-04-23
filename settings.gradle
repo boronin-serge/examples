@@ -16,6 +16,6 @@ include ':app',
         ':common-plugins',
         ':common-navigation',
         ':common-network',
-        ':common-rx-utils', ':core-rx-schedulers-impl'
+        ':common-rx-utils', ':core-rx-schedulers-impl', ':common-preferencemanager-properties'
 
 rootProject.name='Examples'

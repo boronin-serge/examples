@@ -17,6 +17,7 @@ dependencies {
 
     // Ui
     implementation dependencies.appcompat
+    implementation dependencies.recyclerView
     implementation dependencies.chromeCustomTabs
 
     // develop

@@ -7,18 +7,18 @@ import android.graphics.Path
 import android.graphics.RectF
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
 import ru.boronin.common.extension.primitive.getColorProperty
 import ru.boronin.common.extension.primitive.getDimenPxProperty
 import ru.boronin.common.extension.widget.getDimensionPixelSize
 import ru.boronin.common.view.R
 
-class RoundedFrameLayout @JvmOverloads constructor(
+class RoundedConstraintLayout @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet,
   defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr) {
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
   private var path = Path()
   private lateinit var corners: FloatArray
@@ -66,12 +66,12 @@ class RoundedFrameLayout @JvmOverloads constructor(
   }
 
   private fun initCustomProperties(attrs: AttributeSet) {
-    context.withStyledAttributes(attrs, R.styleable.RoundedFrameLayout) {
-      val commonRadius = getDimenPxProperty(R.styleable.RoundedFrameLayout_rfl_cornerRadius)
-      val tlRadius = getDimenPxProperty(R.styleable.RoundedFrameLayout_rfl_topLeftRadius)
-      val trRadius = getDimenPxProperty(R.styleable.RoundedFrameLayout_rfl_topRightRadius)
-      val blRadius = getDimenPxProperty(R.styleable.RoundedFrameLayout_rfl_bottomLeftRadius)
-      val brRadius = getDimenPxProperty(R.styleable.RoundedFrameLayout_rfl_bottomRightRadius)
+    context.withStyledAttributes(attrs, R.styleable.RoundedConstraintLayout) {
+      val commonRadius = getDimenPxProperty(R.styleable.RoundedConstraintLayout_rcl_cornerRadius)
+      val tlRadius = getDimenPxProperty(R.styleable.RoundedConstraintLayout_rcl_topLeftRadius)
+      val trRadius = getDimenPxProperty(R.styleable.RoundedConstraintLayout_rcl_topRightRadius)
+      val blRadius = getDimenPxProperty(R.styleable.RoundedConstraintLayout_rcl_bottomLeftRadius)
+      val brRadius = getDimenPxProperty(R.styleable.RoundedConstraintLayout_rcl_bottomRightRadius)
 
       corners = if (commonRadius != 0f) {
         FloatArray(8) { commonRadius }
@@ -82,7 +82,7 @@ class RoundedFrameLayout @JvmOverloads constructor(
         )
       }
 
-      color = getColorProperty(R.styleable.RoundedFrameLayout_rfl_backgroundColor)
+      color = getColorProperty(R.styleable.RoundedConstraintLayout_rcl_backgroundColor)
     }
   }
 
