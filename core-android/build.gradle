@@ -22,6 +22,9 @@ dependencies {
   // Ui
   implementation dependencies.material
 
+  implementation dependencies.rxJava
+  implementation dependencies.rxAndroid
+
   // Development
   implementation developmentDependencies.kotlinStdlibJdk7
   implementation developmentDependencies.annotation
