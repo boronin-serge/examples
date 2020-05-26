@@ -40,30 +40,30 @@ abstract class BasePaginationAdapter<V : RecyclerView.ViewHolder, D>(
   }
 
   @SuppressLint("CheckResult")
-  fun update(posts: List<D>, nextMaxId: String = "") {
-    Observable.just(calcDiff(this.items, posts))
+  fun update(items: List<D>, nextMaxId: String = "") {
+    Observable.just(calcDiff(this.items, items))
       .subscribeOn(Schedulers.io())
       .observeOn(AndroidSchedulers.mainThread())
       .subscribe {
         onPageLoaded(nextMaxId)
         this.items.clear()
-        this.items.addAll(posts)
+        this.items.addAll(items)
         it.dispatchUpdatesTo(this)
       }
   }
 
   @SuppressLint("CheckResult")
-  fun append(posts: List<D>, nextMaxId: String) {
+  fun append(items: List<D>, nextMaxId: String) {
     val newList = arrayListOf<D>()
     newList.addAll(this.items)
-    newList.addAll(posts)
+    newList.addAll(items)
 
     Observable.just(calcDiff(this.items, newList))
       .subscribeOn(Schedulers.io())
       .observeOn(AndroidSchedulers.mainThread())
       .subscribe {
         onPageLoaded(nextMaxId)
-        this.items.addAll(posts)
+        this.items.addAll(items)
         it.dispatchUpdatesTo(this)
       }
   }
