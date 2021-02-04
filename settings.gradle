@@ -1,3 +1,4 @@
+include ':sample-kotlin'
 include ':app',
         ':sample-room',
         ':sample-splash',
