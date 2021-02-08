@@ -37,10 +37,9 @@ private fun Context.getRealScreenSize(): Point {
       val rawHeight = Display::class.java.getMethod("getRawHeight")
       size.x = rawWidth.invoke(display) as Int
       size.y = rawHeight.invoke(display) as Int
-    }
-    catch (e: IllegalAccessException) { }
-    catch (e: InvocationTargetException) { }
-    catch (e: NoSuchMethodException) { }
+    } catch (e: IllegalAccessException) { } catch (e: InvocationTargetException) { } catch (
+      e: NoSuchMethodException
+    ) { }
   }
   return size
 }

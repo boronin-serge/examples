@@ -1,7 +1,11 @@
 package ru.boronin.core.api.cache
 
 import android.content.SharedPreferences.Editor
-import ru.boronin.common.utils.*
+import ru.boronin.common.utils.DEFAULT_BOOLEAN
+import ru.boronin.common.utils.DEFAULT_FLOAT
+import ru.boronin.common.utils.DEFAULT_INT
+import ru.boronin.common.utils.DEFAULT_LONG
+import ru.boronin.common.utils.DEFAULT_STRING
 
 interface PreferenceManager {
   fun putBoolean(key: String, value: Boolean)

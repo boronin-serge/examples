@@ -1,7 +1,10 @@
 package ru.boronin.common.view
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.withStyledAttributes
@@ -28,9 +31,7 @@ class XfermodeView @JvmOverloads constructor(
   private var marginBottom = 0
 
   init {
-    context.withStyledAttributes(attrs,
-      R.styleable.XfermodeView
-    ) {
+    context.withStyledAttributes(attrs, R.styleable.XfermodeView) {
       widthTransparent = getDimensionPixelSize(
         R.styleable.XfermodeView_widthTransparent,
         DEFAULT_SIZE
@@ -42,8 +43,7 @@ class XfermodeView @JvmOverloads constructor(
       )
 
       val typeInt = getInt(R.styleable.XfermodeView_typeSize, CUSTOM.ordinal)
-      typeSize =
-        TypeSize.find(typeInt)
+      typeSize = TypeSize.find(typeInt)
 
       marginStart = getDimensionPixelSize(R.styleable.XfermodeView_marginStart, 0)
       marginTop = getDimensionPixelSize(R.styleable.XfermodeView_marginTop, 0)

@@ -12,7 +12,6 @@ open class AutoFitTextureView @JvmOverloads constructor(
   private var ratioWidth = 0
   private var ratioHeight = 0
 
-
   /**
    * Sets the aspect ratio for this view. The size of the view will be measured based on the ratio
    * calculated from the parameters. Note that the actual sizes of parameters don't matter, that

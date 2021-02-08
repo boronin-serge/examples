@@ -10,7 +10,6 @@ class DelegateAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
   private var items = mutableListOf<T>()
   private var delegatesManager: AdapterDelegatesManager<List<T>> = AdapterDelegatesManager()
 
-
   // Override
 
   override fun onCreateViewHolder(
@@ -28,7 +27,6 @@ class DelegateAdapter<T> : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
   override fun onFailedToRecycleView(holder: RecyclerView.ViewHolder) = false
 
   // endregion
-
 
   // Api
 

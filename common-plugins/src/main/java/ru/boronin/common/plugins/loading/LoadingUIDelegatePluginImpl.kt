@@ -14,7 +14,6 @@ class LoadingUIDelegatePluginImpl(
 ) : UIDelegatePlugin<Fragment>(), LoadingUIDelegatePlugin {
   private var loadingView by weakReference<View>()
 
-
   // region UIDelegatePlugin
 
   override fun onUIDelegatePluginEvent(event: UIDelegatePluginEvent) {
@@ -28,7 +27,6 @@ class LoadingUIDelegatePluginImpl(
   }
 
   // endregion
-
 
   // region LoadingUIDelegatePlugin
 

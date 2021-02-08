@@ -1,7 +1,12 @@
 package ru.boronin.core.api.resource
 
 import android.content.res.ColorStateList
-import androidx.annotation.*
+import androidx.annotation.ArrayRes
+import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
+import androidx.annotation.IntegerRes
+import androidx.annotation.PluralsRes
+import androidx.annotation.StringRes
 
 interface ResourcesProvider {
   fun getString(@StringRes resId: Int): String

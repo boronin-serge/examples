@@ -11,7 +11,7 @@ abstract class PaginationScrollListener(
 ) : RecyclerView.OnScrollListener() {
 
   private val loadBeforeNPosts = 3
-  private val treshold = 0.8// 1 - load when the last item is visible
+  private val treshold = 0.8 // 1 - load when the last item is visible
 
   override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
     super.onScrolled(recyclerView, dx, dy)
@@ -21,8 +21,9 @@ abstract class PaginationScrollListener(
     val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
 
     if (!isLoading() && !isLastPage()) {
-      if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount * treshold
-        && firstVisibleItemPosition >= 0) {
+      if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount * treshold &&
+        firstVisibleItemPosition >= 0
+      ) {
         loadMoreItems()
       }
     }

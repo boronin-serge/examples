@@ -26,7 +26,6 @@ class OkHttpWrapper() {
             override fun log(message: String) {
               Log.d(javaClass::getName.toString(), message)
             }
-
           }
         ).apply {
           level = HttpLoggingInterceptor.Level.BODY

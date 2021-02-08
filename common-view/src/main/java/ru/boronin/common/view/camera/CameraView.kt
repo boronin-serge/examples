@@ -6,7 +6,12 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.ImageFormat
 import android.graphics.SurfaceTexture
-import android.hardware.camera2.*
+import android.hardware.camera2.CameraAccessException
+import android.hardware.camera2.CameraCaptureSession
+import android.hardware.camera2.CameraCharacteristics
+import android.hardware.camera2.CameraDevice
+import android.hardware.camera2.CameraManager
+import android.hardware.camera2.CaptureRequest
 import android.media.ImageReader
 import android.util.AttributeSet
 import android.util.Size
@@ -20,8 +25,9 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.tbruyelle.rxpermissions2.RxPermissions
 import ru.boronin.common.view.R
 import java.io.File
-import java.util.*
+import java.util.Collections
 import java.util.concurrent.Executors
+import kotlin.collections.ArrayList
 import kotlin.math.max
 
 private const val PATH_SAVE_IMAGES = "/photo"
@@ -91,25 +97,26 @@ class CameraView @JvmOverloads constructor(
       cameraCaptureSession = session
       try {
         previewBuilder?.build()
-          ?.also { session.setRepeatingRequest(
-            it,
-            object : CameraCaptureSession.CaptureCallback() {
-              override fun onCaptureStarted(
-                session: CameraCaptureSession,
-                request: CaptureRequest,
-                timestamp: Long,
-                frameNumber: Long
-              ) {
-                super.onCaptureStarted(session, request, timestamp, frameNumber)
+          ?.also {
+            session.setRepeatingRequest(
+              it,
+              object : CameraCaptureSession.CaptureCallback() {
+                override fun onCaptureStarted(
+                  session: CameraCaptureSession,
+                  request: CaptureRequest,
+                  timestamp: Long,
+                  frameNumber: Long
+                ) {
+                  super.onCaptureStarted(session, request, timestamp, frameNumber)
 
-                if (!isStartCameraPreview) {
-                  cameraAvailableCallback?.cameraAvailableCallback(true)
-                  isStartCameraPreview = true
+                  if (!isStartCameraPreview) {
+                    cameraAvailableCallback?.cameraAvailableCallback(true)
+                    isStartCameraPreview = true
+                  }
                 }
-              }
-            },
-            null
-          )
+              },
+              null
+            )
           }
       } catch (e: CameraAccessException) {
         e.printStackTrace()
@@ -141,7 +148,6 @@ class CameraView @JvmOverloads constructor(
     frontCameraId = cameras.first
     backCameraId = cameras.second
   }
-
 
   // region Api
 
@@ -237,7 +243,6 @@ class CameraView @JvmOverloads constructor(
   }
 
   // endregion
-
 
   // region Private
 
@@ -377,11 +382,13 @@ class CameraView @JvmOverloads constructor(
 
     return if (suitableSizes.size > 0) {
       if (hasTopLimit) {
-        Collections.max(suitableSizes,
+        Collections.max(
+          suitableSizes,
           CompareSizesByArea()
         )
       } else {
-        Collections.min(suitableSizes,
+        Collections.min(
+          suitableSizes,
           CompareSizesByArea()
         )
       }
@@ -440,7 +447,6 @@ class CameraView @JvmOverloads constructor(
 
   // endregion
 
-
   // region Lifecycle
 
   @SuppressLint("MissingPermission")
@@ -455,7 +461,6 @@ class CameraView @JvmOverloads constructor(
   }
 
   // endregion
-
 
   enum class Camera {
     CAMERA_BACK,

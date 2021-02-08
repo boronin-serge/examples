@@ -1,7 +1,11 @@
 package ru.boronin.common.plugins.toolbar
 
 import android.view.MenuItem
-import androidx.annotation.*
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
+import androidx.annotation.MenuRes
+import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -42,7 +46,6 @@ class ToolbarUIDelegatePluginImpl(
   }
 
   // endregion
-
 
   // region ToolbarUIDelegatePlugin
 

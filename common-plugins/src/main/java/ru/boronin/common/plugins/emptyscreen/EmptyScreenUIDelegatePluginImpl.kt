@@ -12,7 +12,7 @@ import ru.boronin.core.android.view.delegate.findViewById
 /**
  * Created by Sergey Boronin on 24.10.2019.
  */
-class EmptyScreenUIDelegatePluginImpl (
+class EmptyScreenUIDelegatePluginImpl(
   @IdRes private val hintViewId: Int
 ) : UIDelegatePlugin<Fragment>(), EmptyScreenUIDelegatePlugin {
   private var hintView by weakReference<View>()
@@ -30,7 +30,6 @@ class EmptyScreenUIDelegatePluginImpl (
   }
 
   // endregion
-
 
   // region EmptyScreenUIDelegatePlugin
 

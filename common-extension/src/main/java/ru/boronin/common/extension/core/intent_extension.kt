@@ -60,7 +60,8 @@ fun intentOf(vararg pairs: Pair<String, Any?>) = Intent().apply {
           else -> {
             val valueType = componentType.canonicalName
             throw IllegalArgumentException(
-              "Illegal value array type $valueType for key \"$key\"")
+              "Illegal value array type $valueType for key \"$key\""
+            )
           }
         }
       }

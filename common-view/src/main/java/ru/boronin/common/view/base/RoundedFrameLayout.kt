@@ -77,8 +77,14 @@ class RoundedFrameLayout @JvmOverloads constructor(
         FloatArray(8) { commonRadius }
       } else {
         floatArrayOf(
-          tlRadius, tlRadius, trRadius, trRadius,
-          blRadius, blRadius, brRadius, brRadius
+          tlRadius,
+          tlRadius,
+          trRadius,
+          trRadius,
+          blRadius,
+          blRadius,
+          brRadius,
+          brRadius
         )
       }
 
@@ -87,5 +93,4 @@ class RoundedFrameLayout @JvmOverloads constructor(
   }
 
   // endregion
-
 }

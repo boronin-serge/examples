@@ -1,27 +1,29 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.jlleitschuh.gradle.ktlint'
+
 android {
-    def ext = rootProject.ext
+  def ext = rootProject.ext
 
-    compileSdkVersion ext.androidCompileSdkVersion
-    defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+  compileSdkVersion ext.androidCompileSdkVersion
+  defaultConfig { minSdkVersion ext.androidMinSdkVersion }
 
-    compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+  compileOptions {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+  }
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
 }
 
 dependencies {
-    def developmentDependencies = rootProject.ext.developmentDependencies
+  def developmentDependencies = rootProject.ext.developmentDependencies
 
-    // Workmanager
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
-    implementation "androidx.work:work-runtime-ktx:2.2.0"
+  // Workmanager
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
+  implementation "androidx.work:work-runtime-ktx:2.5.0"
 
-    implementation developmentDependencies.kotlinStdlibJdk7
+  implementation developmentDependencies.kotlinStdlibJdk7
 }

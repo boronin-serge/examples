@@ -1,19 +1,22 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-android {
-    def ext = rootProject.ext
+apply plugin: 'org.jlleitschuh.gradle.ktlint'
 
-    compileSdkVersion ext.androidCompileSdkVersion
-    defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+android {
+  def ext = rootProject.ext
+
+  compileSdkVersion ext.androidCompileSdkVersion
+  defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+  kotlinOptions { jvmTarget = ext.jvmTargetVersion }
 }
 
 dependencies {
-    def developmentDependencies = rootProject.ext.developmentDependencies
+  def developmentDependencies = rootProject.ext.developmentDependencies
 
-    // Core modules
-    implementation project(':core-api')
+  // Core modules
+  implementation project(':core-api')
 
-    // Development
-    implementation developmentDependencies.kotlinStdlibJdk7
+  // Development
+  implementation developmentDependencies.kotlinStdlibJdk7
 }

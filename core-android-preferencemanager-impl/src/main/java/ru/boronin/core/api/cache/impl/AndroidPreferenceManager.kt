@@ -15,7 +15,6 @@ class AndroidPreferenceManager(
   private val sharedPrefs = context.getSharedPreferences(name, Context.MODE_PRIVATE)
   private val edit = sharedPrefs.edit()
 
-
   // region Boolean
 
   override fun putBoolean(key: String, value: Boolean) {
@@ -28,7 +27,6 @@ class AndroidPreferenceManager(
   override fun getBoolean(key: String, defValue: Boolean) = sharedPrefs.getBoolean(key, defValue)
 
   // endregion
-
 
   // region Int
 
@@ -43,7 +41,6 @@ class AndroidPreferenceManager(
 
   // endregion
 
-
   // region Long
 
   override fun putLong(key: String, value: Long) {
@@ -56,7 +53,6 @@ class AndroidPreferenceManager(
   override fun getLong(key: String, defValue: Long) = sharedPrefs.getLong(key, defValue)
 
   // endregion
-
 
   // region String
 
@@ -74,7 +70,6 @@ class AndroidPreferenceManager(
 
   // endregion
 
-
   // region Set<String>
 
   override fun putStringSet(key: String, value: Set<String>) {
@@ -91,7 +86,6 @@ class AndroidPreferenceManager(
 
   // endregion
 
-
   // region Float
 
   override fun putFloat(key: String, value: Float) {
@@ -104,7 +98,6 @@ class AndroidPreferenceManager(
   override fun getFloat(key: String, defValue: Float) = sharedPrefs.getFloat(key, defValue)
 
   // endregion
-
 
   override fun hasValue(key: String) = sharedPrefs.contains(key)
   override fun remove(key: String) = edit.remove(key).apply()

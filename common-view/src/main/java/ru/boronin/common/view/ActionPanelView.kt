@@ -14,7 +14,7 @@ import ru.boronin.common.extension.widget.getColorStateList
 import ru.boronin.common.extension.widget.getFont
 import ru.boronin.common.utils.DEFAULT_STRING
 import ru.boronin.core.android.view.base.BaseFrameLayout
-import java.util.*
+import java.util.Locale
 
 class ActionPanelView @JvmOverloads constructor(
   context: Context,
@@ -32,7 +32,8 @@ class ActionPanelView @JvmOverloads constructor(
   )
 
   init {
-    context.withStyledAttributes(attrs,
+    context.withStyledAttributes(
+      attrs,
       R.styleable.ActionPanelView
     ) {
 
@@ -62,7 +63,6 @@ class ActionPanelView @JvmOverloads constructor(
       }
 
       // endregion
-
 
       // region Negative
 
@@ -118,7 +118,6 @@ class ActionPanelView @JvmOverloads constructor(
       }
 
       // endregion
-
 
       // region Positive
 
@@ -177,7 +176,6 @@ class ActionPanelView @JvmOverloads constructor(
     }
   }
 
-
   // region All
 
   fun setTextSize(size: Float) {
@@ -201,7 +199,6 @@ class ActionPanelView @JvmOverloads constructor(
   }
 
   // endregion
-
 
   // region Negative
 
@@ -239,7 +236,6 @@ class ActionPanelView @JvmOverloads constructor(
 
   // endregion
 
-
   // region Positive
 
   fun setPositiveTextSize(size: Float) {
@@ -275,7 +271,6 @@ class ActionPanelView @JvmOverloads constructor(
   }
 
   // endregion
-
 
   // region Private
 
@@ -327,7 +322,6 @@ class ActionPanelView @JvmOverloads constructor(
   }
 
   // endregion
-
 
   override fun getLayoutId() = R.layout.action_panel_view
 }

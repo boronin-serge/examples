@@ -5,18 +5,18 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class ViewPagerFragmentAdapter(
-    activity: FragmentActivity
+  activity: FragmentActivity
 ) : FragmentStateAdapter(activity) {
 
-    private val items: MutableList<Fragment> = mutableListOf()
+  private val items: MutableList<Fragment> = mutableListOf()
 
-    override fun createFragment(position: Int) = items[position]
+  override fun createFragment(position: Int) = items[position]
 
-    override fun getItemCount() = items.size
+  override fun getItemCount() = items.size
 
-    fun update(items: List<Fragment>) {
-        this.items.clear()
-        this.items.addAll(items)
-        notifyDataSetChanged()
-    }
+  fun update(items: List<Fragment>) {
+    this.items.clear()
+    this.items.addAll(items)
+    notifyDataSetChanged()
+  }
 }

@@ -1,30 +1,33 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-android {
-    def ext = rootProject.ext
+apply plugin: 'org.jlleitschuh.gradle.ktlint'
 
-    compileSdkVersion ext.androidCompileSdkVersion
-    defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+android {
+  def ext = rootProject.ext
+
+  compileSdkVersion ext.androidCompileSdkVersion
+  defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+  kotlinOptions { jvmTarget = ext.jvmTargetVersion }
 }
 
 dependencies {
-    def dependencies = rootProject.ext.dependencies
-    def developmentDependencies = rootProject.ext.developmentDependencies
-    def testDependencies = rootProject.ext.testDependencies
+  def dependencies = rootProject.ext.dependencies
+  def developmentDependencies = rootProject.ext.developmentDependencies
+  def testDependencies = rootProject.ext.testDependencies
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation dependencies.appcompat
-    implementation dependencies.constraintlayout
-    
-    implementation developmentDependencies.coroutinesCore
-    implementation developmentDependencies.coroutinesAndroid
+  implementation dependencies.appcompat
+  implementation dependencies.constraintlayout
 
-    implementation developmentDependencies.kotlinStdlibJdk7
-    implementation developmentDependencies.coreKtx
+  implementation developmentDependencies.coroutinesCore
+  implementation developmentDependencies.coroutinesAndroid
 
-    testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.androidJunit
-    androidTestImplementation testDependencies.espresso
+  implementation developmentDependencies.kotlinStdlibJdk7
+  implementation developmentDependencies.coreKtx
+
+  testImplementation testDependencies.junit
+  androidTestImplementation testDependencies.androidJunit
+  androidTestImplementation testDependencies.espresso
 }

@@ -3,7 +3,7 @@ package ru.boronin.common.extension.primitive
 import android.content.res.TypedArray
 import android.graphics.Color
 import ru.boronin.common.utils.DEFAULT_INT
-import java.util.*
+import java.util.Locale
 
 fun Int.isNotOutToBounds(index: Number, start: Int = 0) = index in start until this
 fun Double.round(decimals: Int = 2): Double = roundAsStr(decimals).toDouble()

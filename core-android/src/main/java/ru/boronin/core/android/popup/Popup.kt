@@ -7,10 +7,10 @@ import com.google.android.material.snackbar.Snackbar
 
 interface Popup {
   fun show(
-      msg: CharSequence?,
-      duration: PopupDuration = PopupDuration.SHORT,
-      action: String? = null,
-      @IdRes rootId: Int = View.NO_ID
+    msg: CharSequence?,
+    duration: PopupDuration = PopupDuration.SHORT,
+    action: String? = null,
+    @IdRes rootId: Int = View.NO_ID
   )
   fun dismiss()
   fun getPopupHeight(height: (Int) -> Unit)

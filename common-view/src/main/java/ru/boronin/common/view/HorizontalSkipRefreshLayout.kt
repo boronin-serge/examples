@@ -7,7 +7,6 @@ import android.view.ViewConfiguration
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import kotlin.math.abs
 
-
 /**
  * Created by Sergey Boronin on 22.10.2019.
  */

@@ -30,7 +30,7 @@ fun Context.openChromeCustomTabs(url: String, @ColorRes color: Int) {
   val builder = CustomTabsIntent.Builder()
   builder.setToolbarColor(findColor(color) ?: Color.BLACK)
   builder.build().also {
-    //it.intent.flags = FLAG_ACTIVITY_NEW_TASK
+    // it.intent.flags = FLAG_ACTIVITY_NEW_TASK
     it.launchUrl(this, Uri.parse(url))
   }
 }

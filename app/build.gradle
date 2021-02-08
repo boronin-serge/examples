@@ -1,33 +1,55 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+plugins {
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'kotlin-android-extensions'
+  id 'kotlin-kapt'
+  id "org.jlleitschuh.gradle.ktlint"
+}
 
 android {
-    def ext = rootProject.ext
+  def ext = rootProject.ext
 
-    compileSdkVersion ext.androidCompileSdkVersion
-    defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+  compileSdkVersion ext.androidCompileSdkVersion
+  defaultConfig { minSdkVersion ext.androidMinSdkVersion }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+
+  ktlint {
+    android.set(true)
+    outputColorName.set("RED")
+    additionalEditorconfigFile.set(file(".editorconfig"))
+
+    reporters {
+      reporter "plain"
+      reporter "checkstyle"
+      reporter "html"
+    }
+  }
 }
 
 dependencies {
-    def dependencies = rootProject.ext.dependencies
-    def developmentDependencies = rootProject.ext.developmentDependencies
-    def testDependencies = rootProject.ext.testDependencies
+  def dependencies = rootProject.ext.dependencies
+  def developmentDependencies = rootProject.ext.developmentDependencies
+  def testDependencies = rootProject.ext.testDependencies
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':core-android')
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation project(':core-android')
 
-    implementation dependencies.material
-    implementation dependencies.appcompat
-    implementation dependencies.constraintlayout
-    implementation dependencies.recyclerView
+  implementation dependencies.material
+  implementation dependencies.appcompat
+  implementation dependencies.constraintlayout
+  implementation dependencies.recyclerView
 
-    implementation developmentDependencies.kotlinStdlibJdk7
-    implementation developmentDependencies.coreKtx
+  implementation developmentDependencies.kotlinStdlibJdk7
+  implementation developmentDependencies.coreKtx
 
-    testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.androidJunit
-    androidTestImplementation testDependencies.espresso
+  testImplementation testDependencies.junit
+  androidTestImplementation testDependencies.androidJunit
+  androidTestImplementation testDependencies.espresso
 }

@@ -22,7 +22,8 @@ class AndroidResourcesProvider(private val context: Context) :
   override fun getInteger(res: Int) = context.getInteger(res)
   override fun getColor(colorRes: Int) = ContextCompat.getColor(context, colorRes)
 
-  override fun getQuantityString(pluralId: Int,
+  override fun getQuantityString(
+    pluralId: Int,
     quantity: Int,
     vararg formatArgs: Any
   ) = context.getQuantityString(pluralId, quantity, *formatArgs)

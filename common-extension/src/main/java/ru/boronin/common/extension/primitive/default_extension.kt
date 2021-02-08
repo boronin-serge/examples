@@ -1,6 +1,11 @@
 package ru.boronin.common.extension.primitive
 
-import ru.boronin.common.utils.*
+import ru.boronin.common.utils.DEFAULT_BOOLEAN
+import ru.boronin.common.utils.DEFAULT_DOUBLE
+import ru.boronin.common.utils.DEFAULT_FLOAT
+import ru.boronin.common.utils.DEFAULT_INT
+import ru.boronin.common.utils.DEFAULT_LONG
+import ru.boronin.common.utils.DEFAULT_STRING
 
 inline fun <T, R> default(
   value: T?,

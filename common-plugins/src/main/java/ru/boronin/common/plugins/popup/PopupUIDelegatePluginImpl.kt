@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import ru.boronin.core.android.popup.showPopup
 import ru.boronin.core.android.view.delegate.UIDelegatePlugin
 
-
 class PopupUIDelegatePluginImpl : UIDelegatePlugin<Fragment>(), PopupUIDelegatePlugin {
 
   // region PopupUIDelegatePlugin

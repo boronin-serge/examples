@@ -2,7 +2,7 @@ package ru.boronin.core.api.navigator
 
 interface NavigatorHandler {
 
-  //Base
+  // Base
   fun open(deepLink: String)
 
   fun open(obj: Any?, tag: String = "")

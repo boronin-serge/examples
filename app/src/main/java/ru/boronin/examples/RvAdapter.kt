@@ -9,19 +9,19 @@ import ru.boronin.core.android.view.base.BaseReyclerViewAdapter
  * Created by Sergey Boronin on 19.02.2020.
  */
 class RvAdapter : BaseReyclerViewAdapter<RvAdapter.ItemVH, String>() {
-    override fun getItemLayout() = R.layout.list_item
+  override fun getItemLayout() = R.layout.list_item
 
-    override fun initViewHolder(itemView: View) = ItemVH(itemView)
+  override fun initViewHolder(itemView: View) = ItemVH(itemView)
 
-    override fun onBindViewHolder(holder: ItemVH, position: Int) {
-        holder.bind(items[position])
+  override fun onBindViewHolder(holder: ItemVH, position: Int) {
+    holder.bind(items[position])
+  }
+
+  class ItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private val desc = itemView.tvDesc
+
+    fun bind(model: String) {
+      desc.text = model
     }
-
-    class ItemVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val desc = itemView.tvDesc
-
-        fun bind(model: String) {
-            desc.text = model
-        }
-    }
+  }
 }

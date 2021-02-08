@@ -21,22 +21,24 @@ abstract class BasePaginationAdapter<V : RecyclerView.ViewHolder, D>(
   override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
     super.onAttachedToRecyclerView(recyclerView)
     val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-    recyclerView.addOnScrollListener(object : PaginationScrollListener(layoutManager) {
-      override fun loadMoreItems() {
-        isLoading = true
-        if (nextMaxId.isNotBlank()) {
-          loadMoreListener.loadMore(nextMaxId)
+    recyclerView.addOnScrollListener(
+      object : PaginationScrollListener(layoutManager) {
+        override fun loadMoreItems() {
+          isLoading = true
+          if (nextMaxId.isNotBlank()) {
+            loadMoreListener.loadMore(nextMaxId)
+          }
+        }
+
+        override fun isLastPage(): Boolean {
+          return isLastPage
+        }
+
+        override fun isLoading(): Boolean {
+          return isLoading
         }
       }
-
-      override fun isLastPage(): Boolean {
-        return isLastPage
-      }
-
-      override fun isLoading(): Boolean {
-        return isLoading
-      }
-    })
+    )
   }
 
   @SuppressLint("CheckResult")
@@ -84,5 +86,4 @@ abstract class BasePaginationAdapter<V : RecyclerView.ViewHolder, D>(
   // endregion
 
   abstract fun getDiffUtilCallback(oldList: List<D>, newList: List<D>): DiffUtilCallback<D>
-
 }

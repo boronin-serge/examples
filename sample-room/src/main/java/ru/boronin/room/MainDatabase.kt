@@ -26,7 +26,6 @@ import androidx.room.*
 @Entity(tableName = "word_table")
 class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String)
 
-
 /**
  * Dao
  */
@@ -34,16 +33,15 @@ class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String)
 @Dao
 interface WordDao {
 
-    @Query("SELECT * from word_table ORDER BY word ASC")
-    fun getAlphabetizedWords(): List<Word>
+  @Query("SELECT * from word_table ORDER BY word ASC")
+  fun getAlphabetizedWords(): List<Word>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(word: Word)
+  @Insert(onConflict = OnConflictStrategy.IGNORE)
+  suspend fun insert(word: Word)
 
-    @Query("DELETE FROM word_table")
-    suspend fun deleteAll()
+  @Query("DELETE FROM word_table")
+  suspend fun deleteAll()
 }
-
 
 /**
  * Database
@@ -53,28 +51,28 @@ interface WordDao {
 @Database(entities = [Word::class], version = 1, exportSchema = false)
 public abstract class WordRoomDatabase : RoomDatabase() {
 
-    abstract fun wordDao(): WordDao
+  abstract fun wordDao(): WordDao
 
-    companion object {
-        // Singleton prevents multiple instances of database opening at the
-        // same time.
-        @Volatile
-        private var INSTANCE: WordRoomDatabase? = null
+  companion object {
+    // Singleton prevents multiple instances of database opening at the
+    // same time.
+    @Volatile
+    private var INSTANCE: WordRoomDatabase? = null
 
-        fun getDatabase(context: Context): WordRoomDatabase {
-            val tempInstance = INSTANCE
-            if (tempInstance != null) {
-                return tempInstance
-            }
-            synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    WordRoomDatabase::class.java,
-                    "word_database"
-                ).build()
-                INSTANCE = instance
-                return instance
-            }
-        }
+    fun getDatabase(context: Context): WordRoomDatabase {
+      val tempInstance = INSTANCE
+      if (tempInstance != null) {
+        return tempInstance
+      }
+      synchronized(this) {
+        val instance = Room.databaseBuilder(
+          context.applicationContext,
+          WordRoomDatabase::class.java,
+          "word_database"
+        ).build()
+        INSTANCE = instance
+        return instance
+      }
     }
+  }
 }

@@ -26,7 +26,8 @@ class UnitTextView @JvmOverloads constructor(
     addView(valueTextView)
     addView(unitTextView)
 
-    context.withStyledAttributes(attrs,
+    context.withStyledAttributes(
+      attrs,
       R.styleable.UnitTextView
     ) {
       val valueText = getString(R.styleable.UnitTextView_utv_valueText).orEmpty()
@@ -36,7 +37,6 @@ class UnitTextView @JvmOverloads constructor(
       setUnitText(unitText)
     }
   }
-
 
   // region Api
 
@@ -50,13 +50,14 @@ class UnitTextView @JvmOverloads constructor(
 
   // endregion
 
-
   // region Private
 
   private fun createValueText() = createTextView(R.style.valueTextStyle)
   private fun createUnitText() = createTextView(R.style.unitTextStyle)
-  private fun createTextView(@StyleRes res: Int) = AppCompatTextView(ContextThemeWrapper(context, res))
-  //private fun createTextView(@StyleRes res: Int) = AppCompatTextView(context, null, res)
+  private fun createTextView(@StyleRes res: Int) = AppCompatTextView(
+    ContextThemeWrapper(context, res)
+  )
+  // private fun createTextView(@StyleRes res: Int) = AppCompatTextView(context, null, res)
 
   // endregion
 }

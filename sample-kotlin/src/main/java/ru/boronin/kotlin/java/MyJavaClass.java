@@ -4,7 +4,7 @@ import java.util.List;
 
 public class MyJavaClass {
 
-    public List<String> returnNullList() {
-        return null;
-    }
+  public List<String> returnNullList() {
+    return null;
+  }
 }

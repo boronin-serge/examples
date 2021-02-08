@@ -3,12 +3,12 @@ package ru.boronin.core.android.popup.impl
 import android.app.Activity
 import android.content.Context
 import android.graphics.Point
-import com.google.android.material.snackbar.BaseTransientBottomBar
-import com.google.android.material.snackbar.Snackbar
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.IdRes
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import ru.boronin.common.extension.widget.findViewTraversal
 import ru.boronin.common.utils.getNavigationBarSize
 import ru.boronin.core.android.popup.Popup
@@ -40,12 +40,12 @@ class SnackBarPopup(context: Context?) : Popup {
     msg: CharSequence?,
     duration: PopupDuration,
     action: String?,
-    @IdRes rootId:Int
+    @IdRes rootId: Int
   ) {
     show(rootId, msg, duration.snackbar, action)
   }
 
-  private fun show(@IdRes rootId:Int, msg: CharSequence?, duration: Int, action: String? = null) {
+  private fun show(@IdRes rootId: Int, msg: CharSequence?, duration: Int, action: String? = null) {
     val view = view?.findViewById(rootId) ?: view ?: return
     if (msg != null) {
       dismiss()

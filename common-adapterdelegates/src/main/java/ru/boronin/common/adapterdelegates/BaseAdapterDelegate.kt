@@ -7,7 +7,7 @@ import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 
-abstract class BaseAdapterDelegate<T , VH : RecyclerView.ViewHolder> : AdapterDelegate<List<T>>() {
+abstract class BaseAdapterDelegate<T, VH : RecyclerView.ViewHolder> : AdapterDelegate<List<T>>() {
 
   // region Override
 
@@ -24,7 +24,6 @@ abstract class BaseAdapterDelegate<T , VH : RecyclerView.ViewHolder> : AdapterDe
   override fun isForViewType(items: List<T>, position: Int) = true
 
   // endregion
-
 
   // region Api
 

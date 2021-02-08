@@ -11,7 +11,9 @@ fun WebView.getHtmlResponse(callback: (String) -> Unit) {
     override fun onPageFinished(view: WebView?, url: String?) {
       super.onPageFinished(view, url)
       view?.evaluateJavascript(
-        "(function() { return ('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>'); })();"
+        """(function() {
+              | return ('<html>'+document.getElementsByTagName('html')[0].innerHTML+'</html>');
+              |  })();""".trimMargin()
       ) { html ->
         callback.invoke(html)
       }

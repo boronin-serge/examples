@@ -18,7 +18,7 @@ fun Context.showPopup(
   duration: PopupDuration = PopupDuration.SHORT,
   action: String? = null,
   onActionClickListener: Popup.OnActionClickListener? = null,
-  @IdRes resId:Int = View.NO_ID
+  @IdRes resId: Int = View.NO_ID
 ) = getPopup().show(msg, duration, action, onActionClickListener, resId)
 
 fun Context.showSnackBarPopup(
@@ -26,14 +26,14 @@ fun Context.showSnackBarPopup(
   duration: PopupDuration = PopupDuration.SHORT,
   action: String? = null,
   onActionClickListener: Popup.OnActionClickListener? = null,
-  @IdRes resId:Int = View.NO_ID
+  @IdRes resId: Int = View.NO_ID
 ) = SnackBarPopup(this).show(msg, duration, action, onActionClickListener, resId)
 
 fun Context.showToastPopup(
   msg: CharSequence?,
   duration: PopupDuration = PopupDuration.SHORT,
   action: String? = null,
-  @IdRes resId:Int = View.NO_ID
+  @IdRes resId: Int = View.NO_ID
 ) = ToastPopup(this).show(msg, duration, action, resId)
 
 fun Popup.show(
@@ -41,7 +41,7 @@ fun Popup.show(
   duration: PopupDuration = PopupDuration.SHORT,
   action: String? = null,
   onActionClickListener: Popup.OnActionClickListener? = null,
-  @IdRes resId:Int = View.NO_ID
+  @IdRes resId: Int = View.NO_ID
 ) = this.apply {
   setOnActionClickListener(onActionClickListener)
   show(msg, duration, action, resId)

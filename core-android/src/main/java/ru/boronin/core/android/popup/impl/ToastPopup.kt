@@ -17,7 +17,7 @@ class ToastPopup(private val context: Context) :
     msg: CharSequence?,
     duration: PopupDuration,
     action: String?,
-    @IdRes rootId:Int
+    @IdRes rootId: Int
   ) {
     if (duration == INDEFINITE) {
       throw UnsupportedOperationException("ToastPopup not supports 'indefinite' popup duration")

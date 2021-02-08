@@ -6,10 +6,13 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.annotation.*
+import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.IntegerRes
+import androidx.annotation.PluralsRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
-import ru.boronin.common.utils.DEFAULT_BOOLEAN
 
 val Context?.locale
   get() = this?.resources
@@ -40,7 +43,6 @@ fun Context?.findDrawable(
 
 fun Context?.findColor(@ColorRes res: Int) = this?.let { ContextCompat.getColor(it, res) }
 
-
 // region Resources
 
 fun Context.getStringArray(resId: Int): Array<String> = resources.getStringArray(resId)
@@ -54,11 +56,16 @@ fun Context.getQuantityString(
 fun Context.getDimensionPixelSize(@DimenRes resId: Int) = resources.getDimensionPixelSize(resId)
 fun Context.getInteger(@IntegerRes resId: Int) = resources.getInteger(resId)
 
-@RequiresApi(Build.VERSION_CODES.M)
 fun Context.isConnected(): Boolean {
-  val connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
-  val capability = connectivityManager?.getNetworkCapabilities(connectivityManager.activeNetwork)
-  return capability?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) ?: DEFAULT_BOOLEAN
+  val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+  return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    val networkCapabilities = cm.activeNetwork ?: return false
+    val actNw = cm.getNetworkCapabilities(networkCapabilities) ?: return false
+    actNw.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+  } else {
+    val netInfo = cm.activeNetworkInfo
+    netInfo?.isConnectedOrConnecting == true
+  }
 }
 
 // endregion

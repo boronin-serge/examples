@@ -127,12 +127,14 @@ fun View.onKeyListener(keyEvent: Int, keyCode: Int, keyFun: () -> Unit) {
 fun View.fadeOutIn(middleFun: () -> Unit) {
   val fadeOut = ObjectAnimator.ofFloat(this, "alpha", 1f, .0f)
   fadeOut.duration = 100L
-  fadeOut.addListener(object : AnimatorListenerAdapter() {
-    override fun onAnimationEnd(animation: Animator) {
-      super.onAnimationEnd(animation)
-      middleFun.invoke()
+  fadeOut.addListener(
+    object : AnimatorListenerAdapter() {
+      override fun onAnimationEnd(animation: Animator) {
+        super.onAnimationEnd(animation)
+        middleFun.invoke()
+      }
     }
-  })
+  )
 
   val fadeIn = ObjectAnimator.ofFloat(this, "alpha", .0f, 1f)
   fadeIn.duration = 100L

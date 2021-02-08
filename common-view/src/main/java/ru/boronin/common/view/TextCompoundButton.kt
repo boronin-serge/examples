@@ -17,7 +17,6 @@ import ru.boronin.common.extension.widget.attach
 import ru.boronin.common.extension.widget.checkedChangeListener
 import ru.boronin.common.extension.widget.getFont
 import ru.boronin.common.utils.DEFAULT_STRING
-import ru.boronin.common.view.TextCompoundButton.CompoundButtonType.*
 import ru.boronin.core.android.view.base.BaseFrameLayout
 
 class TextCompoundButton @JvmOverloads constructor(
@@ -28,10 +27,14 @@ class TextCompoundButton @JvmOverloads constructor(
   private var compoundButton: CompoundButton? = null
 
   init {
-    context.withStyledAttributes(attrs,
-        R.styleable.TextCompoundButton
+    context.withStyledAttributes(
+      attrs,
+      R.styleable.TextCompoundButton
     ) {
-      val compoundButtonInt = getInt(R.styleable.TextCompoundButton_tcb_compoundButton, CHECKBOX.ordinal)
+      val compoundButtonInt = getInt(
+        R.styleable.TextCompoundButton_tcb_compoundButton,
+        CompoundButtonType.CHECKBOX.ordinal
+      )
       val compoundButtonType = CompoundButtonType.find(compoundButtonInt)
       setCompoundButton(compoundButtonType)
 
@@ -63,7 +66,7 @@ class TextCompoundButton @JvmOverloads constructor(
       if (hasValue(R.styleable.TextCompoundButton_tcb_textPaddingStart)) {
         setTextPadding(
           start = getDimensionPixelSize(
-              R.styleable.TextCompoundButton_tcb_textPaddingStart,
+            R.styleable.TextCompoundButton_tcb_textPaddingStart,
             0
           )
         )
@@ -84,7 +87,7 @@ class TextCompoundButton @JvmOverloads constructor(
       if (hasValue(R.styleable.TextCompoundButton_tcb_textPaddingBottom)) {
         setTextPadding(
           bottom = getDimensionPixelSize(
-              R.styleable.TextCompoundButton_tcb_textPaddingBottom,
+            R.styleable.TextCompoundButton_tcb_textPaddingBottom,
             0
           )
         )
@@ -93,7 +96,6 @@ class TextCompoundButton @JvmOverloads constructor(
 
     compoundButton?.attach(this)
   }
-
 
   // region Api
 
@@ -110,7 +112,6 @@ class TextCompoundButton @JvmOverloads constructor(
   }
 
   // endregion
-
 
   // region Private
 
@@ -146,9 +147,9 @@ class TextCompoundButton @JvmOverloads constructor(
   }
 
   private fun createCompoundButton(type: CompoundButtonType) = when (type) {
-    CHECKBOX -> AppCompatCheckBox(context)
-    RADIOBUTTON -> AppCompatRadioButton(context)
-    SWITCH -> SwitchCompat(context)
+    CompoundButtonType.CHECKBOX -> AppCompatCheckBox(context)
+    CompoundButtonType.RADIOBUTTON -> AppCompatRadioButton(context)
+    CompoundButtonType.SWITCH -> SwitchCompat(context)
   }.apply {
     layoutParams = LinearLayout.LayoutParams(
       ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -166,7 +167,7 @@ class TextCompoundButton @JvmOverloads constructor(
     SWITCH;
 
     companion object {
-      fun find(type: Int) = when(type) {
+      fun find(type: Int) = when (type) {
         CHECKBOX.ordinal -> CHECKBOX
         RADIOBUTTON.ordinal -> RADIOBUTTON
         else -> SWITCH

@@ -8,10 +8,11 @@ import io.reactivex.internal.disposables.DisposableHelper
 import io.reactivex.internal.util.EndConsumerHelper
 import java.util.concurrent.atomic.AtomicReference
 
-abstract class DisposableAnyObserver<T> : SingleObserver<T?>,
-                                          Observer<T?>,
-                                          CompletableObserver,
-                                          Disposable {
+abstract class DisposableAnyObserver<T> :
+  SingleObserver<T?>,
+  Observer<T?>,
+  CompletableObserver,
+  Disposable {
   private val s = AtomicReference<Disposable>()
 
   override fun onSubscribe(d: Disposable) {
