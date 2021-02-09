@@ -52,6 +52,7 @@ ext {
   coreKtxVersion                  = '1.0.2'
   coroutinesVersion               = '1.3.3'
   stethoVersion                   = '1.5.1'
+  navigationVersion               = '2.3.1'
 
   // Play services
   locationServiceVersion          = '17.0.0'
@@ -109,7 +110,11 @@ ext {
 
     // Stetho
     stetho:                     "com.facebook.stetho:stetho:${stethoVersion}",
-    stethoInterceptor:          "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
+    stethoInterceptor:          "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
+
+    // jetpack navigation
+    jetpackNavFragment:         "androidx.navigation:navigation-fragment-ktx:${navigationVersion}",
+    jetpackNavUi:               "androidx.navigation:navigation-ui-ktx:${navigationVersion}"
   ]
 
   testDependencies = [
