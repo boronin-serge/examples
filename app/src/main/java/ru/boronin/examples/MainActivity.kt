@@ -10,4 +10,8 @@ class MainActivity : AppCompatActivity() {
 
     setContentView(R.layout.activity_main)
   }
+
+  private fun test(n: Int): Int {
+    return n.toString(2).toCharArray().sumBy { it.toInt() }
+  }
 }
