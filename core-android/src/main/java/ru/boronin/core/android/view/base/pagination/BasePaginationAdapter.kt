@@ -1,27 +1,28 @@
 package ru.boronin.core.android.view.base.pagination
 
-import android.annotation.SuppressLint
-import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import ru.boronin.common.extension.core.collection.isNotOutToBounds
 import ru.boronin.common.utils.DEFAULT_STRING
-import ru.boronin.core.android.view.base.BaseReyclerViewAdapter
+import ru.boronin.common.utils.delegate.weakReference
 
 abstract class BasePaginationAdapter<V : RecyclerView.ViewHolder, D>(
   val loadMoreListener: LoadMoreListener
-) : BaseReyclerViewAdapter<V, D>() {
+) : RecyclerView.Adapter<V>() {
 
+  protected abstract val differ: AsyncListDiffer<D>
   protected var nextMaxId = DEFAULT_STRING
   protected var isLastPage = false
   protected var isLoading = false
 
+  private var rv by weakReference<RecyclerView>()
+
   override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
     super.onAttachedToRecyclerView(recyclerView)
-    val layoutManager = recyclerView.layoutManager as LinearLayoutManager
-    recyclerView.addOnScrollListener(
+    rv = recyclerView
+    val layoutManager = rv?.layoutManager as LinearLayoutManager
+    rv?.addOnScrollListener(
       object : PaginationScrollListener(layoutManager) {
         override fun loadMoreItems() {
           isLoading = true
@@ -30,44 +31,42 @@ abstract class BasePaginationAdapter<V : RecyclerView.ViewHolder, D>(
           }
         }
 
-        override fun isLastPage(): Boolean {
-          return isLastPage
-        }
-
-        override fun isLoading(): Boolean {
-          return isLoading
-        }
+        override fun isLastPage() = isLastPage
+        override fun isLoading() = isLoading
       }
     )
   }
 
-  @SuppressLint("CheckResult")
-  fun update(items: List<D>, nextMaxId: String = "") {
-    Observable.just(calcDiff(this.items, items))
-      .subscribeOn(Schedulers.io())
-      .observeOn(AndroidSchedulers.mainThread())
-      .subscribe {
-        onPageLoaded(nextMaxId)
-        this.items.clear()
-        this.items.addAll(items)
-        it.dispatchUpdatesTo(this)
-      }
+  override fun getItemCount() = differ.currentList.size
+
+  protected fun getItem(position: Int): D = differ.currentList[position]
+
+  fun removeItem(position: Int) {
+    if (differ.currentList.isNotOutToBounds(position)) {
+      val list = differ.currentList.filterIndexed { index, d -> index != position }
+      update(list)
+    }
   }
 
-  @SuppressLint("CheckResult")
-  fun append(items: List<D>, nextMaxId: String) {
-    val newList = arrayListOf<D>()
-    newList.addAll(this.items)
-    newList.addAll(items)
+  fun updateItem(model: D, position: Int) {
+    if (differ.currentList.isNotOutToBounds(position)) {
+      val list = arrayListOf<D>()
+      list.addAll(differ.currentList)
+      list[position] = model
+      update(list)
+    }
+  }
 
-    Observable.just(calcDiff(this.items, newList))
-      .subscribeOn(Schedulers.io())
-      .observeOn(AndroidSchedulers.mainThread())
-      .subscribe {
-        onPageLoaded(nextMaxId)
-        this.items.addAll(items)
-        it.dispatchUpdatesTo(this)
-      }
+  fun update(items: List<D>, nextMaxId: String = DEFAULT_STRING) {
+    differ.submitList(items) {
+      onPageLoaded(nextMaxId)
+    }
+  }
+
+  fun append(items: List<D>, nextMaxId: String) {
+    differ.submitList(differ.currentList + items) {
+      onPageLoaded(nextMaxId)
+    }
   }
 
   // region private
@@ -75,15 +74,8 @@ abstract class BasePaginationAdapter<V : RecyclerView.ViewHolder, D>(
   private fun onPageLoaded(nextMaxId: String) {
     this.nextMaxId = nextMaxId
     isLoading = false
-    isLastPage = nextMaxId == ""
-  }
-
-  private fun calcDiff(oldList: List<D>, newList: List<D>): DiffUtil.DiffResult {
-    val callback = getDiffUtilCallback(oldList, newList)
-    return DiffUtil.calculateDiff(callback)
+    isLastPage = nextMaxId == DEFAULT_STRING
   }
 
   // endregion
-
-  abstract fun getDiffUtilCallback(oldList: List<D>, newList: List<D>): DiffUtilCallback<D>
 }
