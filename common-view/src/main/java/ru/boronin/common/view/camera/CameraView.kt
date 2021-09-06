@@ -25,7 +25,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.tbruyelle.rxpermissions2.RxPermissions
 import ru.boronin.common.view.R
 import java.io.File
-import java.util.Collections
+import java.util.*
 import java.util.concurrent.Executors
 import kotlin.collections.ArrayList
 import kotlin.math.max
@@ -66,11 +66,11 @@ class CameraView @JvmOverloads constructor(
     }
 
   private val surfaceTextureListener = object : SurfaceTextureListener {
-    override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) { }
-    override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) { }
-    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean = false
+    override fun onSurfaceTextureSizeChanged(p0: SurfaceTexture, width: Int, height: Int) { }
+    override fun onSurfaceTextureUpdated(p0: SurfaceTexture) { }
+    override fun onSurfaceTextureDestroyed(p0: SurfaceTexture): Boolean = false
 
-    override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
+    override fun onSurfaceTextureAvailable(p0: SurfaceTexture, width: Int, height: Int) {
       checkPermissionsAndOpenCamera(width, height)
     }
   }

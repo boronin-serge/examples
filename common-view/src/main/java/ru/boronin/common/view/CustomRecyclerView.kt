@@ -50,7 +50,7 @@ class CustomRecyclerView @JvmOverloads constructor(
   private fun prepareForElevation() {
     if (background == null) {
       val shape = GradientDrawable()
-      shape.cornerRadius = corners.max() ?: 0f
+      shape.cornerRadius = corners.maxOrNull() ?: 0f
       shape.setColor(Color.WHITE)
       background = shape
     }
