@@ -38,6 +38,7 @@ dependencies {
 
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   implementation project(':core-android')
+  implementation project(':sample-protobuf')
 
   implementation dependencies.material
   implementation dependencies.appcompat

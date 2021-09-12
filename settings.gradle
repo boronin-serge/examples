@@ -1,26 +1,28 @@
-include ':sample-kotlin'
 include ':app',
-        ':sample-room',
-        ':sample-splash',
-        ':sample-flow',
-        ':sample-coroutines',
-        ':sample-workmanager',
-        ':core-api',
         ':common-utils',
-        ':core-android-preferencemanager-impl',
-        ':core-android-resourceprovider-impl',
+        ':common-preferencemanager-properties',
+        ':common-rx-bus',
         ':common-extension',
-        ':core-android-locationprovider-impl',
-        ':common-adapterdelegates',
-        ':core-android',
         ':common-view',
         ':common-plugins',
         ':common-navigation',
         ':common-network',
         ':common-rx-utils',
+        ':common-adapterdelegates',
+        ':core-api',
+        ':core-android-preferencemanager-impl',
+        ':core-android-resourceprovider-impl',
+        ':core-android-locationprovider-impl',
+        ':core-android',
         ':core-rx-schedulers-impl',
-        ':common-preferencemanager-properties',
-        ':common-rx-bus'
+        ':sample-compose',
+        ':sample-protobuf',
+        ':sample-kotlin',
+        ':sample-room',
+        ':sample-splash',
+        ':sample-flow',
+        ':sample-coroutines',
+        ':sample-workmanager'
 
 rootProject.name='Examples'
-include ':sample-compose'
+
