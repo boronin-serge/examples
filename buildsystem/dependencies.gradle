@@ -38,8 +38,9 @@ ext {
   retrofitLoggingVersion          = '4.1.1'
   okhttpVersion                   = '4.2.1'
 
-  // Database
+  // Store
   roomVersion                     = '2.2.5'
+  datastoreVersion                = '1.0.0'
 
   // RxJava
   rxJavaVersion                   = '2.2.8'
@@ -74,9 +75,10 @@ ext {
     rxPermissions:              "com.tbruyelle.rxpermissions2:rxpermissions:${rxPermissionsVersion}@aar",
     retrofitAdapterRxJava:      "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
 
-    // database
+    // store
     room:                       "androidx.room:room-runtime:${roomVersion}",
     roomAnnotationProcessor:    "androidx.room:room-compiler:${roomVersion}",
+    datastore:                  "androidx.datastore:datastore-core:${datastoreVersion}",
 
     // network
     retrofit:                   "com.squareup.retrofit2:retrofit:${retrofitVersion}",

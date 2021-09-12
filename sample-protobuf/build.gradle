@@ -16,5 +16,7 @@ dependencies {
   def dependencies = rootProject.ext.dependencies
   def developmentDependencies = rootProject.ext.developmentDependencies
 
+  implementation dependencies.datastore
+
   implementation developmentDependencies.kotlinStdlibJdk7
 }
