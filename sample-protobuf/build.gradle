@@ -3,6 +3,7 @@ plugins {
   id 'kotlin-android'
   id 'kotlin-android-extensions'
   id 'org.jlleitschuh.gradle.ktlint'
+  id "com.google.protobuf" version "0.8.12"
 }
 
 android {
@@ -17,6 +18,26 @@ dependencies {
   def developmentDependencies = rootProject.ext.developmentDependencies
 
   implementation dependencies.datastore
+  implementation dependencies.protobuf
 
   implementation developmentDependencies.kotlinStdlibJdk7
+}
+
+protobuf {
+  protoc {
+    artifact = "com.google.protobuf:protoc:3.10.0"
+  }
+
+  // Generates the java Protobuf-lite code for the Protobufs in this project. See
+  // https://github.com/google/protobuf-gradle-plugin#customizing-protobuf-compilation
+  // for more information.
+  generateProtoTasks {
+    all().each { task ->
+      task.builtins {
+        java {
+          option 'lite'
+        }
+      }
+    }
+  }
 }

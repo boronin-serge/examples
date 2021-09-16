@@ -41,6 +41,7 @@ ext {
   // Store
   roomVersion                     = '2.2.5'
   datastoreVersion                = '1.0.0'
+  protobufVersion                 = '3.10.0'
 
   // RxJava
   rxJavaVersion                   = '2.2.8'
@@ -61,8 +62,6 @@ ext {
   // Test
   junitVersion                    = "4.12"
   androidJunitVersion             = "1.1.1"
-  espressoVersion                 = "3.2.0"
-
   dependencies = [
     //di
     koin:                       "org.koin:koin-android:${koinVersion}",
@@ -78,7 +77,9 @@ ext {
     // store
     room:                       "androidx.room:room-runtime:${roomVersion}",
     roomAnnotationProcessor:    "androidx.room:room-compiler:${roomVersion}",
-    datastore:                  "androidx.datastore:datastore-core:${datastoreVersion}",
+    datastoreCore:              "androidx.datastore:datastore-core:${datastoreVersion}",
+    datastore:                  "androidx.datastore:datastore:${datastoreVersion}",
+    protobuf:                   "com.google.protobuf:protobuf-javalite:${protobufVersion}",
 
     // network
     retrofit:                   "com.squareup.retrofit2:retrofit:${retrofitVersion}",
@@ -102,6 +103,8 @@ ext {
     // location
     playServicesLocation:       "com.google.android.gms:play-services-location:${locationServiceVersion}"
   ]
+  espressoVersion                 = "3.2.0"
+
 
   developmentDependencies = [
     kotlinStdlibJdk7:           "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlinVersion}",

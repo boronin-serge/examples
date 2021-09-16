@@ -1,7 +1,9 @@
 package ru.boronin.examples
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import ru.boronin.protobuf.datastore.ProtoDataStoreInitializer
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,9 +11,16 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
     setContentView(R.layout.activity_main)
-  }
 
-  private fun test(n: Int): Int {
-    return n.toString(2).toCharArray().sumBy { it.toInt() }
+    val protoInitializer = ProtoDataStoreInitializer(applicationContext)
+    with(protoInitializer) {
+      getSettings {
+        Log.d("difficulty", it)
+      }
+      setDifficulty(0)
+      setDifficulty(1)
+      setDifficulty(2)
+      setDifficulty(3)
+    }
   }
 }
