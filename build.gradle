@@ -3,9 +3,9 @@ apply from: 'buildsystem/dependencies.gradle'
 
 buildscript {
   ext {
-    compose_version = '1.0.0'
+    compose_version = '1.1.1'
   }
-  ext.kotlin_version = "1.5.10"
+  ext.kotlin_version = "1.6.10"
   ext.gradlePluginVersion = '7.0.0'
   ext.ktlintGradleVersion = "10.1.0"
   repositories {
@@ -17,7 +17,7 @@ buildscript {
   }
   dependencies {
     classpath "com.android.tools.build:gradle:$gradlePluginVersion"
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
     classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktlintGradleVersion"
   }
 }
