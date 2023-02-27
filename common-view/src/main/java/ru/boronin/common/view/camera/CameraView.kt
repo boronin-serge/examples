@@ -25,9 +25,8 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.tbruyelle.rxpermissions2.RxPermissions
 import ru.boronin.common.view.R
 import java.io.File
-import java.util.Collections
+import java.util.*
 import java.util.concurrent.Executors
-import kotlin.collections.ArrayList
 import kotlin.math.max
 
 private const val PATH_SAVE_IMAGES = "/photo"
@@ -66,13 +65,12 @@ class CameraView @JvmOverloads constructor(
     }
 
   private val surfaceTextureListener = object : SurfaceTextureListener {
-    override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) { }
-    override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) { }
-    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean = false
-
-    override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
+    override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
       checkPermissionsAndOpenCamera(width, height)
     }
+    override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) { }
+    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture) = false
+    override fun onSurfaceTextureUpdated(surface: SurfaceTexture) { }
   }
 
   private val deviceStateCallback = object : CameraDevice.StateCallback() {

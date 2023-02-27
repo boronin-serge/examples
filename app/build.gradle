@@ -44,6 +44,10 @@ dependencies {
   implementation dependencies.constraintlayout
   implementation dependencies.recyclerView
 
+  // jetpack navigation
+  implementation developmentDependencies.jetpackNavFragment
+  implementation developmentDependencies.jetpackNavUi
+
   implementation developmentDependencies.kotlinStdlibJdk7
   implementation developmentDependencies.coreKtx
 
