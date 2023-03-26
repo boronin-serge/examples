@@ -18,6 +18,8 @@ class FlowActivity : AppCompatActivity() {
   lateinit var flowItem: Flow<Int>
   lateinit var flowOne: Flow<String>
   lateinit var flowTwo: Flow<String>
+  val stateFlow = MutableStateFlow(0)
+  val sharedFlow = MutableSharedFlow<Unit>()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -57,12 +59,38 @@ class FlowActivity : AppCompatActivity() {
 
   private fun initListeners() {
     button.setOnClickListener {
+      combineFlows(stateFlow, sharedFlow)
       CoroutineScope(Dispatchers.Main).launch {
-        flowOne.zip(flowTwo) { firstString, secondString ->
-          "$firstString $secondString"
-        }.collect {
-          Log.d(TAG, it)
+        flowItem.collect {
+          stateFlow.emit(it)
+//          sharedFlow.emit(Unit)
         }
+      }
+    }
+  }
+
+  /**
+   * combine state and shared flows
+   */
+  private fun combineFlows(flow1: StateFlow<Int>, flow2: SharedFlow<Unit>) {
+    CoroutineScope(Dispatchers.Main).launch {
+      flow1.combine(flow2) { first, secondg ->
+        "$first $secondg"
+      }.collect {
+        Log.d(TAG, it)
+      }
+    }
+  }
+
+  /**
+   * zip two flows
+   */
+  private fun zipFlows(flow1: Flow<String>, flow2: Flow<String>) {
+    CoroutineScope(Dispatchers.Main).launch {
+      flow1.zip(flow2) { firstString, secondString ->
+        "$firstString $secondString"
+      }.collect {
+        Log.d(TAG, it)
       }
     }
   }

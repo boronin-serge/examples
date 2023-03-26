@@ -7,9 +7,10 @@
   tools:context=".MainActivity">
 
   <androidx.fragment.app.FragmentContainerView
-    android:id="@+id/homeContainer"
-    android:name="ru.boronin.examples.HomeFragment"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent"
+    android:name="ru.boronin.examples.fragments.TestFragment1"
+    tools:layout="@layout/fragment_test1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

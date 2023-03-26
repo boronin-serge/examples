@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Examples</string>
     <string name="run">Run</string>
+
+    <string name="test_fragment_1">Hello blank fragment 1</string>
+    <string name="test_fragment_2">Hello blank fragment 2</string>
+    <string name="test_fragment_3">Hello blank fragment 3</string>
+    <string name="test_fragment_4">Hello blank fragment 4</string>
 </resources>
