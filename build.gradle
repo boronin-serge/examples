@@ -2,21 +2,24 @@
 apply from: 'buildsystem/dependencies.gradle'
 
 buildscript {
-    ext.kotlin_version = "1.6.0"
-    ext.gradlePluginVersion = '4.1.2'
-    ext.ktlintGradleVersion = "9.4.1"
-    repositories {
-        google()
-        jcenter()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+  ext {
+    compose_version = '1.2.0-alpha08'
+  }
+  ext.kotlin_version = "1.6.20"
+  ext.gradlePluginVersion = '7.0.0'
+  ext.ktlintGradleVersion = "10.1.0"
+  repositories {
+    google()
+    jcenter()
+    maven {
+      url "https://plugins.gradle.org/m2/"
     }
-    dependencies {
-        classpath "com.android.tools.build:gradle:$gradlePluginVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktlintGradleVersion"
-    }
+  }
+  dependencies {
+    classpath "com.android.tools.build:gradle:$gradlePluginVersion"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktlintGradleVersion"
+  }
 }
 
 apply plugin: "org.jlleitschuh.gradle.ktlint"
